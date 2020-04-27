@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">TVCR</string>
+    <string name="search_contact">search contact</string>
+    <string name="name">Name:</string>
+    <string name="contact_details">Contact Details:</string>
+    <string name="phone">Phone:</string>
+    <string name="email">Email:</string>
+    <string name="number">Number:</string>
+    <string name="linkedin">LinkedIn:</string>
+    <string name="address">Address:</string>
+    <string name="save">save</string>
+    <string name="add_contact_details">Add Contact details</string>
+    <string name="add">ADD</string>
+</resources>
