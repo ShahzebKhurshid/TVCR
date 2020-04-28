@@ -9,6 +9,6 @@
     <string name="linkedin">LinkedIn</string>
     <string name="address">Address</string>
     <string name="save">save</string>
-    <string name="add_contact_details">Add Contact details</string>
+    <string name="add_contact_details">New Contact</string>
     <string name="add">ADD</string>
 </resources>

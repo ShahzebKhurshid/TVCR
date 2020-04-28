@@ -2,13 +2,18 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
+
+    android:background="@drawable/abstract_bg"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
+        android:paddingHorizontal="40dp"
+        android:paddingTop="25dp"
+        android:fontFamily="@font/roboto_regular"
+        android:background="@drawable/component_add"
         android:orientation="vertical">
 
         <TextView
@@ -18,9 +23,9 @@
             android:layout_marginBottom="15dp"
             android:gravity="center"
             android:text="@string/add_contact_details"
+            android:fontFamily="@font/roboto_light"
             android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/editName"
@@ -60,7 +65,7 @@
             android:id="@+id/editAddress"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="20dp"
             android:hint="@string/address"
             android:inputType="text" />
 
@@ -68,8 +73,9 @@
         <Button
             android:id="@+id/addSave"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:backgroundTint="@color/colorPrimary"
+            android:paddingVertical="25dp"
             android:text="@string/save"
             android:textColor="@android:color/white" />
 
