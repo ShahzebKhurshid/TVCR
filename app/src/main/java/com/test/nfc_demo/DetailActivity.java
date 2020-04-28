@@ -8,7 +8,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -73,6 +76,26 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     public boolean onSupportNavigateUp() {
         finish();
         return true;
+    }
+
+    // initialize options menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.add_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    // add contact or search for contact when clicked in the menu
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.delete) {
+
+            // TODO add delete function here
+
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 
     //on click of data action occurs here

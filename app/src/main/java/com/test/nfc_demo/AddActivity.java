@@ -89,6 +89,13 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         return capitalizeWord.trim();
     }
 
+    //on back button press to go back
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
+
     //close database
     @Override
     protected void onPause() {
@@ -96,7 +103,6 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         if (db != null)
             db.close();
     }
-
 
     //Show a dialog and close the activity
     private void showAlert() {
