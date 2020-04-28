@@ -50,9 +50,8 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     // Adapter for listview
     ArrayAdapter<String> adapter;
 
-    // Search EditText
-    EditText inputSearch;
-
+//    // Search EditText
+//    EditText inputSearch;
 
     // ArrayList data for Listview
     ArrayList<String> dataList = new ArrayList<>();
@@ -82,14 +81,13 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
         //initialize views
         listView = findViewById(R.id.list_view);
-        inputSearch = findViewById(R.id.inputSearch);
 
-        inputSearch.setVisibility(View.INVISIBLE); //make it invisible
+//        inputSearch = findViewById(R.id.inputSearch);
+//        inputSearch.setVisibility(View.INVISIBLE); //make it invisible
 
-        //delete button
-        ImageButton btn = (ImageButton) findViewById(R.id.imageButton);
-        //btn.setImageResource(R.drawable.delete);
-
+//        //delete button
+//        ImageButton btn = (ImageButton) findViewById(R.id.imageButton);
+//        //btn.setImageResource(R.drawable.delete);
 
 
         //get database instance
@@ -109,25 +107,25 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         //set adapter to listview
         listView.setAdapter(adapter);
 
-        // callback for edit text
-        inputSearch.addTextChangedListener(new TextWatcher() {
-
-            @Override
-            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
-                // When user changed the Text
-                MainActivity.this.adapter.getFilter().filter(cs); // this does the filtering
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
-                // no action needed
-            }
-
-            @Override
-            public void afterTextChanged(Editable arg0) {
-                // no action needed
-            }
-        });
+//        // callback for edit text
+//        inputSearch.addTextChangedListener(new TextWatcher() {
+//
+//            @Override
+//            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
+//                // When user changed the Text
+//                MainActivity.this.adapter.getFilter().filter(cs); // this does the filtering
+//            }
+//
+//            @Override
+//            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
+//                // no action needed
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable arg0) {
+//                // no action needed
+//            }
+//        });
 
         //handle clicks of items
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -152,6 +150,8 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                     Log.e(tag, "Speaker failure" + e.getMessage());
                 }
 
+
+
                 //navigate to Detail activity
                 Intent intent = new Intent(MainActivity.this, DetailActivity.class);
                 intent.putExtra(KEY, dataList.get(position));
@@ -162,7 +162,6 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
         ActionBar actionBar = getSupportActionBar();          //create ActionBar object
         actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setDisplayShowTitleEnabled(false);
 
     }
 
@@ -217,8 +216,6 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
         return super.onCreateOptionsMenu(menu);
 
-        //getMenuInflater().inflate(R.menu.menu, menu);
-        //return true;
     }
 
     // add contact or search for contact when clicked in the menu

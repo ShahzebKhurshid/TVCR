@@ -70,13 +70,14 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         if (v.getId() == R.id.addSave) {
             // insert record
             helper.addContact(new ContactInfo(
-                    capitalizeWord(name.getText().toString()),
+                    capitalizeWord(name.getText().toString()), // capitalize each word in a name
                     phone.getText().toString(), email.getText().toString(),
                     url.getText().toString(), address.getText().toString()));
             showAlert();
         }
     }
 
+    // capitalize each word
     public static String capitalizeWord(String str){
         String words[]=str.split("\\s");
         String capitalizeWord="";
