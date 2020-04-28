@@ -15,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.test.nfc_demo.pojo.ContactInfo;
 import com.test.nfc_demo.sql.SQLHelper;
 
+import java.util.ArrayList;
+
 public class AddActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String NAME = "name";
@@ -67,10 +69,23 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v) {
         if (v.getId() == R.id.addSave) {
             // insert record
-            helper.addContact(new ContactInfo(name.getText().toString(), phone.getText().toString(),
-                    email.getText().toString(), url.getText().toString(), address.getText().toString()));
+            helper.addContact(new ContactInfo(
+                    capitalizeWord(name.getText().toString()),
+                    phone.getText().toString(), email.getText().toString(),
+                    url.getText().toString(), address.getText().toString()));
             showAlert();
         }
+    }
+
+    public static String capitalizeWord(String str){
+        String words[]=str.split("\\s");
+        String capitalizeWord="";
+        for(String w:words){
+            String first=w.substring(0,1);
+            String afterfirst=w.substring(1);
+            capitalizeWord+=first.toUpperCase()+afterfirst+" ";
+        }
+        return capitalizeWord.trim();
     }
 
     //close database
