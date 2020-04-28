@@ -19,9 +19,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.test.nfc_demo.sql.SQLHelper;
@@ -79,6 +81,8 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         //initialize views
         listView = findViewById(R.id.list_view);
         inputSearch = findViewById(R.id.inputSearch);
+
+        inputSearch.setVisibility(View.INVISIBLE); //make it invisible
 
 
         //get database instance
@@ -149,6 +153,10 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             }
         });
 
+        ActionBar actionBar = getSupportActionBar();          //create ActionBar object
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);
+
     }
 
     // speak methods will send text to be spoken
@@ -181,8 +189,29 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     // initialize options menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
+
+        getMenuInflater().inflate(R.menu.menu,menu);
+        MenuItem menuItem = menu.findItem(R.id.search_icon);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setQueryHint("Search");
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return true;
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
+
+        //getMenuInflater().inflate(R.menu.menu, menu);
+        //return true;
     }
 
     // add contact or search for contact when clicked in the menu
