@@ -17,7 +17,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -83,6 +85,11 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         inputSearch = findViewById(R.id.inputSearch);
 
         inputSearch.setVisibility(View.INVISIBLE); //make it invisible
+
+        //delete button
+        ImageButton btn = (ImageButton) findViewById(R.id.imageButton);
+        //btn.setImageResource(R.drawable.delete);
+
 
 
         //get database instance
