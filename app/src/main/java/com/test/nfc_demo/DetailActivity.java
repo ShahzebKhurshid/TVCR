@@ -80,10 +80,10 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.address_txt) {
-            String uri = String.format(Locale.ENGLISH, "geo:%f,%f", 42.390900, -71.222220);
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-            if (intent.resolveActivity(getPackageManager()) != null) {
-                startActivity(intent);
+            Uri gmmIntentUri = Uri.parse("geo:0,0?q="+info.getAddress());
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+            if (mapIntent.resolveActivity(getPackageManager()) != null) {
+                startActivity(mapIntent);
             }
         }
         if (id == R.id.email_txt) {
