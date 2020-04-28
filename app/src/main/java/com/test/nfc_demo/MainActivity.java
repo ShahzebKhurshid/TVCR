@@ -8,6 +8,7 @@ import android.nfc.NdefMessage;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.speech.tts.TextToSpeech;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -26,8 +27,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.test.nfc_demo.sql.SQLHelper;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final String KEY = "key";
@@ -58,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
     NfcAdapter nfcAdapter;
     PendingIntent pendingIntent;
 
+    private TextToSpeech speaker; // speaker for Text to Speech
+    private static final String tag = "Speech"; // tag for debugging Text to Speech
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
             Log.d("SQLiteDemo", "Create database failed");
         }
 
+        //Initialize Text to Speech engine
+        speaker = new TextToSpeech(this, this);
 
         // Adding items to listview
         dataList.addAll(getDataList());
@@ -117,6 +124,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     final int position, long id) {
+                try { // speak when click list item
+                    Log.i(tag, "Add - TTS invoked.");
+
+                    // if speaker is talking, stop it
+                    if(speaker.isSpeaking()){
+                        Log.i(tag, "Speaker Speaking");
+                        speaker.stop();
+                        // else start speech
+                    } else {
+                        Log.i(tag, "Speaker Not Already Speaking");
+                        speak(dataList.get(position));
+                    }
+
+                } catch (Exception e) {
+                    Log.e(tag, "Speaker failure" + e.getMessage());
+                }
+
                 //navigate to Detail activity
                 Intent intent = new Intent(MainActivity.this, DetailActivity.class);
                 intent.putExtra(KEY, dataList.get(position));
@@ -127,6 +151,32 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // speak methods will send text to be spoken
+    public void speak(String output){
+        speaker.speak(output, TextToSpeech.QUEUE_FLUSH, null, "Id 0");
+    }
+
+    // Implements TextToSpeech.OnInitListener.
+    public void onInit(int status) {
+        // status can be either TextToSpeech.SUCCESS or TextToSpeech.ERROR.
+        if (status == TextToSpeech.SUCCESS) {
+            // Set preferred language to US english.
+            // If a language is not be available, the result will indicate it.
+            int result = speaker.setLanguage(Locale.US);
+
+            if (result == TextToSpeech.LANG_MISSING_DATA ||
+                    result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                // Language data is missing or the language is not supported.
+                Log.e(tag, "Language is not available.");
+            } else {
+                // The TTS engine has been successfully initialized
+                Log.i(tag, "TTS Initialization successful.");
+            }
+        } else {
+            // Initialization failed.
+            Log.e(tag, "Could not initialize TextToSpeech.");
+        }
+    }
 
     // initialize options menu
     @Override
