@@ -35,7 +35,7 @@ The Add page will allow the user to add new contact information, such as "Name,"
 <br/>**Dialer** - call contact’s number
 <br/>**SMS Messaging** - create new text message with contact’s number in recipient field
 <br/>**Email** - create new email with contact’s email address in recipient field
-<br/>**Google Maps** - built-in navigation to contact’s address
+<br/>**Google Maps** - navigation to contact’s address
 <br/>**Browser** - uses contact’s URL to display LinkedIn profile using a built-in browser
 
 ## NFC Technology
