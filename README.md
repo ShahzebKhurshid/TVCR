@@ -36,7 +36,7 @@ The Add page will allow the user to add new contact information, such as "Name,"
 <br/>**SMS Messaging** - create new text message with contact’s number in recipient field
 <br/>**Email** - create new email with contact’s email address in recipient field
 <br/>**Google Maps** - navigation to contact’s address
-<br/>**Browser** - uses contact’s URL to display LinkedIn profile using a built-in browser
+<br/>**Browser** - uses contact’s URL to display LinkedIn profile using a browser
 
 ## NFC Technology
 Near Field Communication (NFC) is a wireless technology that allows smartphones to share data bidirectionally with other NFC-enabled devices in close proximity of a distance less than 4 cm. Our app will populate and save contact information from an NFC tag. The connection is free and does not rely on Wi-Fi, 3G, or LTE.
