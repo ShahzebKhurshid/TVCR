@@ -18,7 +18,7 @@ The app has two starting points. For Start Point 1, tapping the NFC-enabled devi
 
 ### Home Page
 
-The Home activity page lists contacts previously scanned from NFC identification cards. Additionally, the Home page has an Action Bar. The menu has a search bar item for filtering contacts in the list, and the it also has an add item that directs to the Add activity page.
+The Home activity page lists contacts previously scanned from NFC identification cards. Additionally, the Home page has an Action Bar. The menu has a search bar item for filtering contacts in the list, and the it also has an add item that directs to the Add activity page. SQLite is used to store each contact's information.
 
 ### Contact Page
 
