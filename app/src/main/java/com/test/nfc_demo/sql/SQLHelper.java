@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.test.nfc_demo.pojo.ContactInfo;
 
@@ -66,6 +67,13 @@ public class SQLHelper extends SQLiteOpenHelper {
         values.put(KEY_URL, item.getUrl());
         values.put(KEY_ADDRESS, item.getAddress());
         db.insert(TABLE_NAME, null, values);
+        db.close();
+    }
+
+    //delete contact from database
+    public void deleteContact(ContactInfo item){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NAME, KEY_NAME + "=?", new String[] {item.getName()});
         db.close();
     }
 

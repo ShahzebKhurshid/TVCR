@@ -86,12 +86,11 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     // add contact or search for contact when clicked in the menu
+    // TODO deletes multiple contacts of the same name
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.delete) {
-
-            // TODO add delete function here
-
+            helper.deleteContact(new ContactInfo(name.getText().toString()));
             return true;
         } else {
             return super.onOptionsItemSelected(item);

@@ -21,6 +21,11 @@ public class ContactInfo {
         this.address = address;
     }
 
+    public ContactInfo(String name) {
+        super();
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }
