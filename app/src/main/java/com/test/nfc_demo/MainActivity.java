@@ -1,5 +1,9 @@
 package com.test.nfc_demo;
 
+/**
+ *  Activity for home page list of contact names.
+ */
+
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.database.SQLException;
@@ -50,9 +54,6 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     // Adapter for listview
     ArrayAdapter<String> adapter;
 
-//    // Search EditText
-//    EditText inputSearch;
-
     // ArrayList data for Listview
     ArrayList<String> dataList = new ArrayList<>();
 
@@ -81,14 +82,6 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
         //initialize views
         listView = findViewById(R.id.list_view);
-
-//        inputSearch = findViewById(R.id.inputSearch);
-//        inputSearch.setVisibility(View.INVISIBLE); //make it invisible
-
-//        //delete button
-//        ImageButton btn = (ImageButton) findViewById(R.id.imageButton);
-//        //btn.setImageResource(R.drawable.delete);
-
 
         //get database instance
         helper = new SQLHelper(this);
@@ -230,7 +223,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         }
     }
 
-    //Callback that we get from Adding new contact
+    // Callback that we get from Adding new contact
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -241,7 +234,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         }
     }
 
-    //Method used to get data
+    // Method used to get data
     private ArrayList<String> getDataList() {
         //query database
         ArrayList<String> contactList = helper.getContactNamesList();
@@ -252,6 +245,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         }
     }
 
+    // nfc method
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);

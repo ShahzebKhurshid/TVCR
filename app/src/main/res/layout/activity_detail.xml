@@ -46,7 +46,7 @@
             android:id="@+id/phone_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="10dp"
+            android:paddingVertical="5dp"
             android:textColor="@color/hyperlink"
             android:textSize="20sp" />
     </LinearLayout>

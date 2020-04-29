@@ -1,5 +1,9 @@
 package com.test.nfc_demo.sql;
 
+/**
+ *  A helper class used to execute the SQL statements on SQLite.
+ */
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;

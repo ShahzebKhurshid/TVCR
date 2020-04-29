@@ -1,5 +1,9 @@
 package com.test.nfc_demo;
 
+/**
+ *  Activity for the individual contact page.
+ */
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,7 +15,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +23,6 @@ import com.test.nfc_demo.pojo.ContactInfo;
 import com.test.nfc_demo.sql.SQLHelper;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class DetailActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -32,6 +34,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     private TextView phone;
     private TextView address;
     private TextView linkedin;
+    private static final int CODE = 2001;
 
     private SQLiteDatabase db;
     private SQLHelper helper;
@@ -86,7 +89,6 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     // add contact or search for contact when clicked in the menu
-    // TODO deletes multiple contacts of the same name
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.delete) {
@@ -95,7 +97,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                     phone.getText().toString(), email.getText().toString(),
                     linkedin.getText().toString(), address.getText().toString()));
             Intent intent = new Intent(DetailActivity.this, MainActivity.class);
-            startActivityForResult(intent, 1001);
+            startActivityForResult(intent, CODE);
             return true;
         } else {
             return super.onOptionsItemSelected(item);

@@ -1,5 +1,9 @@
 package com.test.nfc_demo;
 
+/**
+ *  Activity for adding new contact information.
+ */
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.SQLException;
@@ -14,8 +18,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.test.nfc_demo.pojo.ContactInfo;
 import com.test.nfc_demo.sql.SQLHelper;
-
-import java.util.ArrayList;
 
 public class AddActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -65,7 +67,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         url.setText(getIntent().getStringExtra(URL));
     }
 
-    // Perform action on click
+    // Save contact on click and add name to the home page list
     public void onClick(View v) {
         if (v.getId() == R.id.addSave) {
             // insert record
@@ -114,7 +116,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
                 "OK",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        setResult(RESULT_OK); //send back a positive resut to parent activity as data was added
+                        setResult(RESULT_OK); //send back a positive result to parent activity as data was added
                         AddActivity.this.finish(); //line to close activity
                         dialog.dismiss();
                     }
