@@ -26,7 +26,7 @@ Selecting a contact from the Home list will direct to the Contact activity page 
 
 ### Add Page
 
-The Add page will allow the user to add new contact information, such as "Name," “Number,” “Email,” “Address,” and "LinkedIn." Both this page and the Contact page will have a back button widget that brings the user back to the Home page.
+The Add page will allow the user to add new contact information, such as "Name," “Number,” “Email,” “Address,” and "LinkedIn." Both this page and the Contact page will have a back button in the menu that brings the user back to the Home page.
 
 ## Activities
 **Home** - displays ListView of saved contacts
