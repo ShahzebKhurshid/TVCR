@@ -1,4 +1,4 @@
-# The Virtual Card Reader
+# The Virtual Card Reader (TVCR)
 
 ### Created by Boxin Cao, Katherine Chin, & Shahzeb Khurshid
 ### Team 1: CS680 Spring 2020
