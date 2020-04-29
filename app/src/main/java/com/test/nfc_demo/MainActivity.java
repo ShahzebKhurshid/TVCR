@@ -13,17 +13,12 @@ import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.speech.tts.TextToSpeech;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -64,6 +59,8 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     NfcAdapter nfcAdapter;
     PendingIntent pendingIntent;
 
+    SearchView searchView;
+
     private TextToSpeech speaker; // speaker for Text to Speech
     private static final String tag = "Speech"; // tag for debugging Text to Speech
 
@@ -100,26 +97,6 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         //set adapter to listview
         listView.setAdapter(adapter);
 
-//        // callback for edit text
-//        inputSearch.addTextChangedListener(new TextWatcher() {
-//
-//            @Override
-//            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
-//                // When user changed the Text
-//                MainActivity.this.adapter.getFilter().filter(cs); // this does the filtering
-//            }
-//
-//            @Override
-//            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
-//                // no action needed
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable arg0) {
-//                // no action needed
-//            }
-//        });
-
         //handle clicks of items
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -142,8 +119,6 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                 } catch (Exception e) {
                     Log.e(tag, "Speaker failure" + e.getMessage());
                 }
-
-
 
                 //navigate to Detail activity
                 Intent intent = new Intent(MainActivity.this, DetailActivity.class);
@@ -191,9 +166,10 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
         getMenuInflater().inflate(R.menu.menu,menu);
         MenuItem menuItem = menu.findItem(R.id.search);
-        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView = (SearchView) menuItem.getActionView();
         searchView.setQueryHint("Search");
 
+        // search to find a contact
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -203,6 +179,19 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             @Override
             public boolean onQueryTextChange(String newText) {
                 adapter.getFilter().filter(newText);
+
+                //upon clicking a filtered contact, it will refresh home page
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view,
+                                            final int position, long id) {
+                        //navigate to Detail activity
+                        Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                        intent.putExtra(KEY, dataList.get(position));
+                        startActivity(intent);
+                    }
+                });
+
                 return true;
             }
         });
@@ -211,7 +200,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
     }
 
-    // add contact or search for contact when clicked in the menu
+    // add contact when clicked in the menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.add) {

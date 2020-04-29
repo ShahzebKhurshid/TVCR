@@ -88,20 +88,23 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         return super.onCreateOptionsMenu(menu);
     }
 
-    // add contact or search for contact when clicked in the menu
+    // delete contact when clicked in the menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.delete) {
-            helper.deleteContact(new ContactInfo(
-                    name.getText().toString(),
-                    phone.getText().toString(), email.getText().toString(),
-                    linkedin.getText().toString(), address.getText().toString()));
-            Intent intent = new Intent(DetailActivity.this, MainActivity.class);
-            startActivityForResult(intent, CODE);
-            return true;
-        } else {
+
+        // DELETE FUNCTION FOR PRESENTATION
+
+//        if (item.getItemId() == R.id.delete) {
+//            helper.deleteContact(new ContactInfo(
+//                    name.getText().toString(),
+//                    phone.getText().toString(), email.getText().toString(),
+//                    linkedin.getText().toString(), address.getText().toString()));
+//            Intent intent = new Intent(DetailActivity.this, MainActivity.class);
+//            startActivityForResult(intent, CODE);
+//            return true;
+//        } else {
             return super.onOptionsItemSelected(item);
-        }
+//        }
     }
 
     //on click of data action occurs here

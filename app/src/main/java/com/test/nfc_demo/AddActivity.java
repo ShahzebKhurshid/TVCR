@@ -63,8 +63,8 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         name.setText(getIntent().getStringExtra(NAME));
         phone.setText(getIntent().getStringExtra(PHONE));
         email.setText(getIntent().getStringExtra(EMAIL));
-        address.setText(getIntent().getStringExtra(ADDRESS));
         url.setText(getIntent().getStringExtra(URL));
+        address.setText(getIntent().getStringExtra(ADDRESS));
     }
 
     // Save contact on click and add name to the home page list
