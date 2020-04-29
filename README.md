@@ -18,25 +18,25 @@ The app has two starting points. For Start Point 1, tapping the NFC-enabled devi
 
 ### Home Page
 
-The Home activity page lists contacts previously scanned from NFC identification cards. Additionally, the Home page has an Action Bar with widgets. There is a “Recently Opened” widget that directs to the Recently Opened activity page and a “Search” widget for filtering contacts in the list.
+The Home activity page lists contacts previously scanned from NFC identification cards. Additionally, the Home page has an Action Bar. The menu has a search bar item for filtering contacts in the list, and the it also has an add item that directs to the Add activity page.
 
 ### Contact Page
 
-Selecting a contact from the Home list will direct to the Contact activity page that displays “Number,” “Email,” and “LinkedIn”, and “Address” clickable widgets. Each will use an implicit intent to call an activity that performs dial, text, navigate, mail, or browse functions. When the “Number” widget is tapped, a context menu will display options to call, message, or cancel.
+Selecting a contact from the Home list will direct to the Contact activity page that displays “Number,” “Email,” “LinkedIn,” “Address,” and "LinkedIn" clickable widgets. Each will use an implicit intent to call an activity that performs dial, text, navigate, mail, or browse functions. When the “Number” widget is tapped, an alert will display options to call or message. Moreover, the menu has the option to delete this contact and return the updated Home contact list.
 
-### Recents Page
+### Add Page
 
-The Recents Activity page will show the most recently opened contact information pages in a list. Both this page and the Contact page will have a back button widget that brings the user back to the Home page.
+The Add page will allow the user to add new contact information, such as "Name," “Number,” “Email,” “Address,” and "LinkedIn." Both this page and the Contact page will have a back button widget that brings the user back to the Home page.
 
 ## Activities
 **Home** - displays ListView of saved contacts
-<br/>**Recents** - displays ListView of contacts starting with last opened first
-<br/>**Contact** - individual contact information displaying
+<br/>**Add** - displays EditText fields for typing new contact information and saves contact
+<br/>**Contact** - displays individual contact information
 <br/>**Dialer** - call contact’s number
 <br/>**SMS Messaging** - create new text message with contact’s number in recipient field
 <br/>**Email** - create new email with contact’s email address in recipient field
-<br/>**Browser** - uses contact’s URL to display LinkedIn profile using a built-in browser
 <br/>**Google Maps** - built-in navigation to contact’s address
+<br/>**Browser** - uses contact’s URL to display LinkedIn profile using a built-in browser
 
 ## NFC Technology
 Near Field Communication (NFC) is a wireless technology that allows smartphones to share data bidirectionally with other NFC-enabled devices in close proximity of a distance less than 4 cm. Our app will populate and save contact information from an NFC tag. The connection is free and does not rely on Wi-Fi, 3G, or LTE.
@@ -48,6 +48,3 @@ Near Field Communication (NFC) is a wireless technology that allows smartphones 
 <br/>[Wireless charging using NFC on Mercedes-Benz S-class](https://www.youtube.com/watch?v=LUVIFB1-vq4)
 <br/>[NFC-Capable Sony music player](https://www.youtube.com/watch?v=bSJTnv8f-Zs)
 <br/>['My Number Cards'](https://appleinsider.com/articles/19/06/11/japanese-iphone-users-will-be-able-to-access-my-number-cards-via-nfc-this-fall)
-
-### Interactive Prototype
-An interactive prototype of the app can be found [here](https://bit.ly/2PHaLrw) on UXPin.
