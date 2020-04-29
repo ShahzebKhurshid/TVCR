@@ -11,4 +11,6 @@
     <string name="save">save</string>
     <string name="add_contact_details">New Contact</string>
     <string name="add">ADD</string>
+    <string name="search">SEARCH</string>
+    <string name="delete">DELETE</string>
 </resources>

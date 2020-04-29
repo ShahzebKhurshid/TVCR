@@ -1,7 +1,7 @@
 package com.test.nfc_demo.pojo;
 
 /**
- * This is a plain old java class(POJO) that contains the contact template.
+ * This is a plain old java class (POJO) that contains the contact template.
  */
 
 public class ContactInfo {
@@ -19,11 +19,6 @@ public class ContactInfo {
         this.email = email;
         this.url = url;
         this.address = address;
-    }
-
-    public ContactInfo(String name) {
-        super();
-        this.name = name;
     }
 
     public int getId() {

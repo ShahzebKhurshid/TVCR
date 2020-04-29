@@ -197,7 +197,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     public boolean onCreateOptionsMenu(Menu menu) {
 
         getMenuInflater().inflate(R.menu.menu,menu);
-        MenuItem menuItem = menu.findItem(R.id.search_icon);
+        MenuItem menuItem = menu.findItem(R.id.search);
         SearchView searchView = (SearchView) menuItem.getActionView();
         searchView.setQueryHint("Search");
 

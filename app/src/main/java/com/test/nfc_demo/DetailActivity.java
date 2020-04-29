@@ -90,7 +90,12 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.delete) {
-            helper.deleteContact(new ContactInfo(name.getText().toString()));
+            helper.deleteContact(new ContactInfo(
+                    name.getText().toString(),
+                    phone.getText().toString(), email.getText().toString(),
+                    linkedin.getText().toString(), address.getText().toString()));
+            Intent intent = new Intent(DetailActivity.this, MainActivity.class);
+            startActivityForResult(intent, 1001);
             return true;
         } else {
             return super.onOptionsItemSelected(item);
