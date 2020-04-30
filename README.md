@@ -22,7 +22,7 @@ The Home activity page lists contacts previously scanned from NFC identification
 
 ### Contact Page
 
-Selecting a contact from the Home list will direct to the Contact activity page that displays "Name," “Phone,” “Email," “Address,” and "LinkedIn" clickable widgets. Each will use an implicit intent to call an activity that performs dial, text, navigate, mail, or browse functions. When the “Number” widget is tapped, an alert will display options to call or message. Moreover, the menu has the option to delete this contact and return the updated Home contact list.
+Selecting a contact from the Home list will direct to the Contact activity page that displays "Name," “Phone,” “Email," “Address,” and "LinkedIn" clickable widgets. Each will use an implicit intent to call an activity that performs dial, text, mail, navigate, or browse functions. When the “Number” widget is tapped, an alert will display options to call or message. Moreover, the menu has the option to delete this contact and return the updated Home contact list.
 
 ### Add Page
 
