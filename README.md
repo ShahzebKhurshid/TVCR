@@ -28,6 +28,14 @@ Selecting a contact from the Home list will direct to the Contact activity page 
 
 The Add page will allow the user to add new contact information, such as "Name," “Phone,” “Email,” “Address,” and "LinkedIn." Both this page and the Contact page will have a back button in the menu that brings the user back to the Home page.
 
+### Add Page
+
+The Add page will allow the user to add new contact information, such as "Name," “Phone,” “Email,” “Address,” and "LinkedIn." Both this page and the Contact page will have a back button in the menu that brings the user back to the Home page.
+
+### NFC Intent Filter
+
+The app implements listener to detect NFC tag while app is open. The NFC tag data is then copied from the NFC tag and the data are sent to be stored in the SQLite database.
+
 ## Activities
 **Home** - displays ListView of saved contacts
 <br/>**Add** - displays EditText fields for typing new contact information and saves contact
